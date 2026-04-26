@@ -23,10 +23,16 @@ export default class ColecaoCliente implements ClienteRepositorio { //Note o 'im
 
     async salvar(cliente: Cliente): Promise<Cliente> {
         if(cliente?.id) { //Se cliente já possui id(modo editar), então faça abaixo..
-            await this.#colecao().doc(cliente.id).set(cliente) //Em #colecao no documento(doc), no cliente(cliente.id) aplique 'set(cliente)' que substitui o antigo pelo novo.
+            await this.#colecao().doc(cliente.id).set({
+                nome: cliente.nome,
+                idade: cliente.idade
+            } as any); //Em #colecao no documento(doc), no cliente(cliente.id) aplique 'set(cliente)' que substitui o antigo pelo novo.
             return cliente //Ao término, delvolve o cliente para que saibamos que terminou.
         } else {
-            const docRef = await this.#colecao().add(cliente); //Se não tem id(novo cliente), em #colecao aplicamos o método '.add(cliente)' para adicionar o novo cliente no banco. OBS: docRef nesse processo todo está pedindo do Google um 'id' para o novo cliente.
+            const docRef = await this.#colecao().add({
+                nome: cliente.nome,
+                idade: cliente.idade
+              } as any); //Se não tem id(novo cliente), em #colecao aplicamos o método '.add(cliente)' para adicionar o novo cliente no banco. OBS: docRef nesse processo todo está pedindo do Google um 'id' para o novo cliente.
             const doc = await docRef.get(); //doc está agora devolvendo esse documento com o id para o 'frontend'. OBS: esse doc é o 'snapshot' dos dados.
             return doc.data(); //Retornamos o novo 'Cliente' prontinho já covertido e com id preenchido.
         }
