@@ -37,7 +37,7 @@ export default function Formulario(props: FormularioProps) {
     )
 }
 
-//Preste muita atenção no 'valorMudou' usado como prop que é mandado para as intâncias de <Entrada />, pois na realidade ela está mandando a função 'setNome' ou 'setIdade' para Entrada.tsx. E lá Entrada irá usá-la para capturar o que é digitado e mandar de volta pra cá, chegando aqui esse dígito vai alterar os estados 'nome' e 'idade' e fará os inputs funcionarem na tela.
+//Preste muita atenção no 'valorMudou' usado como prop que é mandado para as instâncias de <Entrada />, pois na realidade ela está mandando a função 'setNome' ou 'setIdade' para Entrada.tsx. E lá Entrada irá usá-la para capturar o que é digitado e mandar de volta pra cá, chegando aqui esse dígito vai alterar os estados 'nome' e 'idade' e fará os inputs funcionarem na tela.
 
 //Note o 'cancelado' no TypeScrip lá em cima, pois ele recebe a função 'setVisivel' que vem de index.tsx via prop para cá! E é usado no botão 'cancelar' para alternar do formulário para a tabela.
 

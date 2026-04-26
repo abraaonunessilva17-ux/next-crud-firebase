@@ -4,6 +4,7 @@ import firebase from "../config"; //Importamos isso porque ele é o "Coração" 
 import Cliente from "../../core/Cliente"; //Importamos a classe Cliente da pasta core.
 import ClienteRepositorio from "../../core/ClienteRepositorio"; //Importamos o arquivo que guarda as regras do backend.
 
+
 export default class ColecaoCliente implements ClienteRepositorio { //Note o 'implements', isso diz que a classe ColecaoCliente está 'assinando o contrato' que criei com 'ClienteRepositorio' que é onde estão as regras do backend.
 
     //Logo abaixo teremos um conversor, como nesse projeto temos o nosso "Mundo do TypeScript" (nosso app) onde usamos a classe Cliente que tem seus métodos, tipos e um jeito de ser criada (new Cliente..), temos o "Mundo do Firestore"(Nuvem), em que o Google não conhece a classe Cliente e só entende documentos de texto/JSON. Por isso precisamos disso, para mandar para o banco os nossos dados de forma que ele entenda, e para recebê-los de forma que nosso app entenda.

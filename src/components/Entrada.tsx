@@ -5,10 +5,9 @@ interface EntradaProps { //Usando TypeScript passamos para Entrada.tsx as propri
     texto: string //Receberá a propriedade texto sendo do tipo 'string'.
     valor: any //Receberá qualquer outra prop.
     className?: string //Receberá propriedades css vindas do Pai Formulario no tipo string. É opcional.
-    somenteLeitura?: boolean //Propriedade opcional usada para definir se um campo vai ser editável ou não, ex: Num campo "código" (ID) onde o usuário tem um id, nesse caso ele n seria editável, somente leitura, pois esse user viria do banco de dados. O boolean só serve para dizer que isso tudo é true ou false.
+    somenteLeitura?: boolean //Propriedade opcional usada para definir se um campo vai ser editável ou não, ex: Queremos que o 'id' ninca seje editado. Por isso o campo (ID) definido com 'somenteLeitura = true', pois esse user viria do banco de dados. O boolean só serve para dizer que isso tudo é true ou false. OBS: Se quiser que um campo n seja editável use isso.
     valorMudou?: (valor: any) => void //Função (callback) que Entrada.tsx (Filho) usa para avisar o pai (Formulario.tsx) que o usuário digitou alguma coisa. O "?" diz que é opcional. (valor: any) indica o que o usuário digitou no input (nome ou número), e na verdade esse valor são funções 'setNome' e 'setIdade' que vieram de Formulario.tsx via prop para cá e que serão usadas para alterar os estados 'nome' e 'idade' lá no Pai. void é padrão.
 }
-
 
 export default function Entrada(props: EntradaProps) {
    return(
