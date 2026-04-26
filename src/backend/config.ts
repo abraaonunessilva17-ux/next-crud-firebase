@@ -9,13 +9,14 @@
 import firebase from "firebase"; //Importa o pacote principal (core) do Firebase.
 import 'firebase/firestore'; //Aqui estamos ativando somente o módulo de banco de dados do Firestore no pacote principal.
 
+console.log("PROJECT ID:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
+
 if(!firebase.apps.length) { //Quer dizer: A lista de apps inicializados está vazia? OBS: Se for a 1° vez que o site carrega o tamanho da lista é 0, e o zero é falso em booleano, por isso a "!" no início torna esse valor 'true'. E inicia o código abaixo.
     firebase.initializeApp({ //firebase.initializeApp é o que inicializa o aplicativo. Note que temos {}, isso é o objeto com as "chaves da casa", os dados sensíveis que vc pegou do firebase no '.env.local'.
         apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY, //É a chave de identificação da API. Diz qual projeto está fazendo a requisição.
         authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN, //Endereço oficial do seu projeto no Firebase (geralmente usado para sistemas de login).
         projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID, //É o ID único do seu projeto.
     })
-    console.log("PROJECT ID:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
 }
 
 export default firebase;
