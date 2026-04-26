@@ -6,7 +6,7 @@
 
 //3. Exportar as Ferramentas Prontas. A parte mais importante é o export default. Em vez de você ter que configurar o Firebase em cada página do seu site, você faz tudo uma vez só no config.ts e exporta o banco já "pronto para o uso".
 
-import firebase from "firebase"; //Importa o pacote principal (core) do Firebase.
+import firebase from "firebase/app"; //Importa o pacote principal (core) do Firebase.
 import 'firebase/firestore'; //Aqui estamos ativando somente o módulo de banco de dados do Firestore no pacote principal.
 
 console.log("PROJECT ID:", process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID);
